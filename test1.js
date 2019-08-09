@@ -23,8 +23,8 @@ module.exports = {
         result.value.forEach(html => {
           console.log(
             '=============================================>',
-            '\n',
-            html
+            html,
+            '\n'
           );
         });
       }
