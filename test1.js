@@ -11,14 +11,22 @@ module.exports = {
   'execute test': browser => {
     browser.execute(
       function() {
-        const elm = document.querySelector(
+        const elms = document.querySelectorAll(
           '[class="style-scope ytd-grid-video-renderer"]'
         );
-        return elm.innerHTML;
+        return Array.from(elms).map(elm => {
+          return elm.innerHTML;
+        });
       },
       ['title'],
       result => {
-        console.log(result);
+        result.value.forEach(html => {
+          console.log(
+            '=============================================>',
+            '\n',
+            html
+          );
+        });
       }
     );
   },
